@@ -127,6 +127,7 @@ export default class ToDoModel {
         if (listIndex >= 0) {
             let listToLoad = this.toDoLists[listIndex];
             this.currentList = listToLoad;
+            this.view.moveSelectedListUp(this.currentList,this.toDoLists)
             this.view.viewList(this.currentList);
         }
     }

@@ -76,6 +76,18 @@ export default class ToDoView {
         }
     }
 
+    moveSelectedListUp(list,lists){
+        let listsElement = document.getElementById("todo-lists-list");
+        listsElement.innerHTML = "";
+        this.appendNewListToView(list)
+        for (let i = 0; i < lists.length; i++) {
+            let cur = lists[i];
+            if(list != cur){
+                this.appendNewListToView(cur);
+            }
+        }
+    }
+
     // THE VIEW NEEDS THE CONTROLLER TO PROVIDE PROPER RESPONSES
     setController(initController) {
         this.controller = initController;
