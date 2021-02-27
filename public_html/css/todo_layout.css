@@ -122,6 +122,14 @@
     text-align: right;
 }
 
+#todo-lists-list{
+        display: flex;
+        overflow: scroll;
+        overflow-x: hidden;
+        flex-direction: column;
+        margin: 0;
+        height:90.5%;
+}
 #workspace {
     grid-column: 2 span 1;
     grid-row: 2 span 1;
