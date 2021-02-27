@@ -92,4 +92,5 @@ export default class ToDoView {
     setController(initController) {
         this.controller = initController;
     }
+
 }

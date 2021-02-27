@@ -14,8 +14,58 @@
     --swatch-text-accent:   #ffc819; /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */  
 
     --font-primary:         'Lexend Exa', sans-serif;
+
+    --modal-hover: rgba(255,255,255,.6); 
+    --light-gray: #e9edf0;
 }
 
+.modal-wrapper {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.ripple:not(:active):before {
+    overflow: hidden;
+    animation: ripple 0.5s cubic-bezier(0, 0, 0.2, 1);
+    /* transition: visibility .4s step-end; */
+    transition: visibility .5s ease-out;
+}
+
+#modal-close {
+    color: var(--light-gray);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#modal-close:hover{
+    background-color:var(--modal-hover);
+    cursor:pointer;
+}
+
+.modal {
+    color: var(--light-gray);
+    background-color: rgb(64, 69, 78);;
+    border-radius: 3px;
+}
+
+.modal-title{
+    border-bottom: 2px dotted;
+    color: var(--light-gray);
+}
+
+.modal-button {
+    background-color: rgba(255,255,255, 0);
+    font-family: 'Consolas';
+    border: none;
+    transition: 0.1s ease-in-out;
+    color: var(--light-gray);
+    text-align: center;
+    font-size: 12pt;
+}
+
+.modal-button:hover{
+    background-color:var(--modal-hover);
+    cursor:pointer;
+}
 #grid-container {
     background-color: var(--swatch-foundation);
     font-family: var(--font-primary);

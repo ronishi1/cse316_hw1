@@ -23,9 +23,30 @@ export default class ToDoController {
         document.getElementById("redo-button").onmousedown = function() {
             appModel.redo();
         }
+        // document.getElementById("delete-list-button").onmousedown = function() {
+        //     appModel.removeCurrentList();
+        // }
         document.getElementById("delete-list-button").onmousedown = function() {
+            document.getElementsByClassName('modal-wrapper')[0].style.display='block';
+            document.getElementsByClassName('modal')[0].style.display='block';
+        }
+        
+        document.getElementById("modal-cancel").onmousedown = function(){
+            document.getElementsByClassName('modal-wrapper')[0].style.display='none';
+            document.getElementsByClassName('modal')[0].style.display='none';
+        }
+
+        document.getElementById("modal-close").onmousedown = function(){
+            document.getElementsByClassName('modal-wrapper')[0].style.display='none';
+            document.getElementsByClassName('modal')[0].style.display='none';
+        }
+
+        document.getElementById("modal-delete").onmousedown = function(){
+            document.getElementsByClassName('modal-wrapper')[0].style.display='none';
+            document.getElementsByClassName('modal')[0].style.display='none';
             appModel.removeCurrentList();
         }
+
         document.getElementById("add-item-button").onmousedown = function() {
             appModel.addNewItemTransaction();
         }  
