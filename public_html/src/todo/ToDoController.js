@@ -25,7 +25,7 @@ export default class ToDoController {
         }
 
         document.getElementById("close-list-button").onmousedown = function(){
-            appModel.loadList();
+            appModel.loadList("close");
         }
         document.getElementById("delete-list-button").onmousedown = function() {
             document.getElementsByClassName('modal-wrapper')[0].style.display='block';

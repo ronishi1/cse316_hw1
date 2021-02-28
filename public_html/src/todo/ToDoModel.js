@@ -119,21 +119,24 @@ export default class ToDoModel {
      * Load the items for the listId list into the UI.
      */
     loadList(listId) {
-        if(!listId){
+        if(listId == "close"){
             this.view.clearItemsList();
+            this.view.unhighlightList(this.currentList);
+            this.view.disableButtons();
         }
         else {
-        let listIndex = -1;
-        for (let i = 0; (i < this.toDoLists.length) && (listIndex < 0); i++) {
-            if (this.toDoLists[i].id === listId)
-                listIndex = i;
-        }
-        if (listIndex >= 0) {
-            let listToLoad = this.toDoLists[listIndex];
-            this.currentList = listToLoad;
-            this.view.moveSelectedListUp(this.currentList,this.toDoLists);
-            this.view.highlightList(this.currentList);
-            this.view.viewList(this.currentList);
+            let listIndex = -1;
+            for (let i = 0; (i < this.toDoLists.length) && (listIndex < 0); i++) {
+                if (this.toDoLists[i].id === listId)
+                    listIndex = i;
+            }
+            if (listIndex >= 0) {
+                let listToLoad = this.toDoLists[listIndex];
+                this.currentList = listToLoad;
+                this.view.moveSelectedListUp(this.currentList,this.toDoLists);
+                this.view.highlightList(this.currentList);
+                this.view.enableButtons();
+                this.view.viewList(this.currentList);
         }
     }
     }

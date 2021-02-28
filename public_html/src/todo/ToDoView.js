@@ -93,6 +93,29 @@ export default class ToDoView {
         listElement.style.backgroundColor = "rgba(255,200,0,.5)"
     }
 
+    unhighlightList(list){
+        let listElement = document.getElementById("todo-list-" + list.id);
+        listElement.style.backgroundColor = "rgba(255,255,255,0)"
+    }
+
+    disableButtons(){
+        document.getElementById("add-item-button").style["pointer-events"] = "none";
+        document.getElementById("add-item-button").style.opacity = .5;
+        document.getElementById("delete-list-button").style["pointer-events"] = "none";
+        document.getElementById("delete-list-button").style.opacity = .5;
+        document.getElementById("close-list-button").style["pointer-events"] = "none";
+        document.getElementById("close-list-button").style.opacity = .5;
+    }
+
+    enableButtons(){
+        document.getElementById("add-item-button").style["pointer-events"] = "auto";
+        document.getElementById("add-item-button").style.opacity = 1;
+        document.getElementById("delete-list-button").style["pointer-events"] = "auto";
+        document.getElementById("delete-list-button").style.opacity = 1;
+        document.getElementById("close-list-button").style["pointer-events"] = "auto";
+        document.getElementById("close-list-button").style.opacity = 1;
+    }
+    
     // THE VIEW NEEDS THE CONTROLLER TO PROVIDE PROPER RESPONSES
     setController(initController) {
         this.controller = initController;
