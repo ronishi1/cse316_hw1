@@ -82,6 +82,7 @@
 #left-sidebar {
     background-color: var(--swatch-complement);
     color: rgb(233,237,240);
+    box-shadow: 2px 3px 2px #636363;
 }
 
 #workspace {
@@ -110,6 +111,13 @@
 .list-item-card {
     border-bottom: solid;
 }
+
+#navbar {
+    background-color: rgb(64, 69, 78);
+    box-shadow: 2px 3px 2px #636363;
+    border-radius: 0px;
+}
+
 
 .todo_button {
     cursor:pointer;
