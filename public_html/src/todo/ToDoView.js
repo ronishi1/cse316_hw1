@@ -88,6 +88,11 @@ export default class ToDoView {
         }
     }
 
+    highlightList(list){
+        let listElement = document.getElementById("todo-list-" + list.id);
+        listElement.style.backgroundColor = "rgba(255,200,0,.5)"
+    }
+
     // THE VIEW NEEDS THE CONTROLLER TO PROVIDE PROPER RESPONSES
     setController(initController) {
         this.controller = initController;
