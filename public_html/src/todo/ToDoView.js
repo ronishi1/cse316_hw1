@@ -100,11 +100,11 @@ export default class ToDoView {
 
     disableButtons(){
         document.getElementById("add-item-button").style["pointer-events"] = "none";
-        document.getElementById("add-item-button").style.opacity = .5;
+        document.getElementById("add-item-button").style.opacity = .3;
         document.getElementById("delete-list-button").style["pointer-events"] = "none";
-        document.getElementById("delete-list-button").style.opacity = .5;
+        document.getElementById("delete-list-button").style.opacity = .3;
         document.getElementById("close-list-button").style["pointer-events"] = "none";
-        document.getElementById("close-list-button").style.opacity = .5;
+        document.getElementById("close-list-button").style.opacity = .3;
     }
 
     enableButtons(){
@@ -115,7 +115,16 @@ export default class ToDoView {
         document.getElementById("close-list-button").style["pointer-events"] = "auto";
         document.getElementById("close-list-button").style.opacity = 1;
     }
-    
+
+    disableAddListButton(){
+        document.getElementById("add-list-button").style["pointer-events"] = "none";
+        document.getElementById("add-list-button").style.opacity = .3;
+    }
+
+    enableAddListButton(){
+        document.getElementById("add-list-button").style["pointer-events"] = "auto";
+        document.getElementById("add-list-button").style.opacity = 1; 
+    }
     // THE VIEW NEEDS THE CONTROLLER TO PROVIDE PROPER RESPONSES
     setController(initController) {
         this.controller = initController;
