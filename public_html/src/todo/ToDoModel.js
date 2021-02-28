@@ -93,6 +93,17 @@ export default class ToDoModel {
         return newList;
     }
 
+    addNewEmptyList(){
+        let newList = new ToDoList(this.nextListId++);
+        this.currentList = newList;
+        this.toDoLists.push(newList);
+        this.view.appendNewListToView(newList);
+        this.view.enableButtons();
+        this.view.moveSelectedListUp(newList,this.toDoLists);
+        this.view.highlightList(newList);
+        this.view.viewList(newList)
+        return newList;
+    }
     /**
      * Adds a brand new default item to the current list's items list and refreshes the view.
      */
@@ -171,6 +182,7 @@ export default class ToDoModel {
         this.toDoLists.splice(indexOfList, 1);
         this.currentList = null;
         this.view.clearItemsList();
+        this.view.enableAddListButton();
         this.view.refreshLists(this.toDoLists);
     }
 

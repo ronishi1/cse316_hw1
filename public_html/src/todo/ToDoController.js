@@ -15,7 +15,7 @@ export default class ToDoController {
 
         // SETUP ALL THE EVENT HANDLERS SINCE THEY USE THE MODEL
         document.getElementById("add-list-button").onmousedown = function() {
-            appModel.addNewList();
+            appModel.addNewEmptyList();
         }
         document.getElementById("undo-button").onmousedown = function() {
             appModel.undo();
