@@ -113,9 +113,8 @@
 
 .todo_button {
     cursor:pointer;
-    background-color: var(--swatch-complement);
 }
 
 .todo_button:hover {
-    background-color: var(--swatch-contrast);
+    background-color:var(--modal-hover);
 }

@@ -119,6 +119,10 @@ export default class ToDoModel {
      * Load the items for the listId list into the UI.
      */
     loadList(listId) {
+        if(!listId){
+            this.view.clearItemsList();
+        }
+        else {
         let listIndex = -1;
         for (let i = 0; (i < this.toDoLists.length) && (listIndex < 0); i++) {
             if (this.toDoLists[i].id === listId)
@@ -131,6 +135,7 @@ export default class ToDoModel {
             this.view.highlightList(this.currentList);
             this.view.viewList(this.currentList);
         }
+    }
     }
 
     /**

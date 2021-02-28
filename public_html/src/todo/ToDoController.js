@@ -23,9 +23,10 @@ export default class ToDoController {
         document.getElementById("redo-button").onmousedown = function() {
             appModel.redo();
         }
-        // document.getElementById("delete-list-button").onmousedown = function() {
-        //     appModel.removeCurrentList();
-        // }
+
+        document.getElementById("close-list-button").onmousedown = function(){
+            appModel.loadList();
+        }
         document.getElementById("delete-list-button").onmousedown = function() {
             document.getElementsByClassName('modal-wrapper')[0].style.display='block';
             document.getElementsByClassName('modal')[0].style.display='block';

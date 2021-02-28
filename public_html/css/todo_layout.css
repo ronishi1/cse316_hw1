@@ -16,6 +16,7 @@
     animation-play-state: running;
 }
 
+
 @keyframes appear_in{
     0% {
         opacity: 0;
@@ -169,3 +170,4 @@
 .list-item-control {
     width: 20%;
 }
+
