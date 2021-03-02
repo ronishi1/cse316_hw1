@@ -9,6 +9,7 @@ import EditDate_Transaction from './transactions/EditDate_Transaction.js'
 import EditStatus_Transaction from './transactions/EditStatus_Transaction.js'
 import MoveUp_Transaction from './transactions/MoveUp_Transaction.js'
 import MoveDown_Transaction from './transactions/MoveDown_Transaction.js'
+import DeleteItem_Transaction from './transactions/DeleteItem_Transaction.js'
 
 /**
  * ToDoModel
@@ -249,6 +250,21 @@ export default class ToDoModel {
         let temp = this.currentList.items[index1];
         this.currentList.items[index1] = this.currentList.items[index2];
         this.currentList.items[index2] = temp;
+        this.view.viewList(this.currentList);
+    }
+
+    addDeleteItemTransaction(listItem,listIndex){
+        let transaction = new DeleteItem_Transaction(this,listItem,listIndex);
+        this.tps.addTransaction(transaction);
+    }
+
+    deleteItem(listIndex){
+        this.currentList.items.splice(listIndex,1);
+        this.view.viewList(this.currentList);
+    }
+
+    addItemAtIndex(listItem,listIndex){
+        this.currentList.items.splice(listIndex,0,listItem);
         this.view.viewList(this.currentList);
     }
 }

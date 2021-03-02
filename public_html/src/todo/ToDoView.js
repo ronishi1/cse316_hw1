@@ -68,7 +68,7 @@ export default class ToDoView {
                                 + "<div class='list-controls-col'>"
                                 + " <div class='list-item-control material-icons moveup'>keyboard_arrow_up</div>"
                                 + " <div class='list-item-control material-icons movedown'>keyboard_arrow_down</div>"
-                                + " <div class='list-item-control material-icons close'>close</div>"
+                                + " <div class='list-item-control material-icons closeitem'>close</div>"
                                 + " <div class='list-item-control'></div>"
                                 + " <div class='list-item-control'></div>"
                                 + "</div>";
@@ -158,6 +158,11 @@ export default class ToDoView {
             else {
                 movedown.style["pointer-events"] = "none";
                 movedown.style.opacity = .3;
+            }
+
+            let closeItem = listItemElement.getElementsByClassName("closeitem")[0];
+            closeItem.onmousedown = () => {
+                this.controller.handleDeleteItem(list.items[j],j);
             }
 
 

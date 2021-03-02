@@ -80,4 +80,8 @@ export default class ToDoController {
     handleMoveElementDown(listIndex){
         this.model.addMoveDownTransaction(listIndex);
     }
+
+    handleDeleteItem(listItem,listIndex){
+        this.model.addDeleteItemTransaction(listItem,listIndex);
+    }
 }
