@@ -64,4 +64,8 @@ export default class ToDoController {
     handleDescriptionChange(listItem,description){
         this.model.addEditDescriptionTransaction(listItem,description);
     }
+
+    handleStatusChange(listItem,status){
+        this.model.addEditStatusTransaction(listItem,status);
+    }
 }

@@ -80,8 +80,8 @@ export default class ToDoView {
             let task = listItemElement.getElementsByClassName("task-col")[0];
             let taskInput = document.createElement("input");
             taskInput.className = "task-col"
-            task.onmousedown = function(){
-                taskInput.setAttribute("value",list.items[j].getDescription());
+            task.onmousedown = () => {
+                taskInput.value= list.items[j].getDescription();
                 task.replaceWith(taskInput);
                 window.setTimeout(function () { 
                     taskInput.focus(); 
@@ -104,15 +104,21 @@ export default class ToDoView {
             incompleteStatus.text = "incomplete";
             statusSelector.appendChild(completeStatus);
             statusSelector.appendChild(incompleteStatus)
-            status.onmousedown = function(){
+            status.onmousedown = () => {
                 status.replaceWith(statusSelector);
+                if(list.items[j].getStatus() == "complete"){
+                    statusSelector.selectedIndex = 0;
+                }
+                else {
+                    statusSelector.selectedIndex = 1;
+                }
                 window.setTimeout(function () { 
                     statusSelector.focus(); 
-                }, 0); 
+                }, 0);
             }
-            statusSelector.onblur = function(){
+            statusSelector.onblur = () => {
+                this.controller.handleStatusChange(list.items[j],statusSelector.value);
                 statusSelector.replaceWith(status)
-                console.log("test")
             }
 
 

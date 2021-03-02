@@ -14,7 +14,6 @@ export default class EditDescription_Transaction extends jsTPS_Transaction {
     }
 
     doTransaction() {
-        // MAKE A NEW ITEM
         this.model.editDescription(this.listItem,this.newDescription);
     }
 

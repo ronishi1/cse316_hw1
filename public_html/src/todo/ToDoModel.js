@@ -5,6 +5,7 @@ import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
 import EditDescription_Transaction from './transactions/EditDescription_Transaction.js'
+import EditStatus_Transaction from './transactions/EditStatus_Transaction.js'
 
 /**
  * ToDoModel
@@ -123,6 +124,16 @@ export default class ToDoModel {
 
     editDescription(listItem,newDescription){
         listItem.setDescription(newDescription);
+        this.view.viewList(this.currentList);
+    }
+
+    addEditStatusTransaction(listItem,newStatus) {
+        let transaction = new EditStatus_Transaction(this,listItem,listItem.getStatus(),newStatus);
+        this.tps.addTransaction(transaction);
+    }
+
+    editStatus(listItem,newStatus){
+        listItem.setStatus(newStatus);
         this.view.viewList(this.currentList);
     }
 
