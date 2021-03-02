@@ -65,7 +65,12 @@ export default class ToDoController {
         this.model.addEditDescriptionTransaction(listItem,description);
     }
 
+    handleDateChange(listItem,date){
+        this.model.addEditDateTransaction(listItem,date);
+    }
+
     handleStatusChange(listItem,status){
         this.model.addEditStatusTransaction(listItem,status);
     }
+
 }

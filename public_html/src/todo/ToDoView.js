@@ -80,8 +80,8 @@ export default class ToDoView {
             let task = listItemElement.getElementsByClassName("task-col")[0];
             let taskInput = document.createElement("input");
             taskInput.className = "task-col"
+            taskInput.value= list.items[j].getDescription();
             task.onmousedown = () => {
-                taskInput.value= list.items[j].getDescription();
                 task.replaceWith(taskInput);
                 window.setTimeout(function () { 
                     taskInput.focus(); 
@@ -92,6 +92,22 @@ export default class ToDoView {
                 taskInput.replaceWith(task)
             }
 
+            // Date column
+            let date = listItemElement.getElementsByClassName("due-date-col")[0];
+            let dateInput = document.createElement("input");
+            dateInput.className = "due-date-col";
+            dateInput.type = "date";
+            dateInput.value = list.items[j].getDueDate();
+            date.onmousedown = () => {
+                date.replaceWith(dateInput);
+                window.setTimeout(function () { 
+                    taskInput.focus(); 
+                }, 0); 
+            }
+            dateInput.onblur = () => {
+                this.controller.handleDateChange(list.items[j],dateInput.value);
+                dateInput.replaceWith(date);
+            }
             // Status Column
             let status = listItemElement.getElementsByClassName("status-col")[0];
             let statusSelector = document.createElement("select");
