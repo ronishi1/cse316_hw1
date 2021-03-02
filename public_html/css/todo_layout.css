@@ -9,6 +9,10 @@ html,body{
     margin:0
 }
 
+.disable  {
+    pointer-events:none;
+    opacity:.5;
+}
 #navbar {
     display: flex;
     justify-content: space-between;

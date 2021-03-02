@@ -28,6 +28,7 @@ export default class ToDoController {
             appModel.closeList();
         }
 
+        // Defining event handlers for modal here since simple enough, too complicated to route to view
         document.getElementById("delete-list-button").onmousedown = function() {
             document.getElementsByClassName('modal-wrapper')[0].style.display='block';
             document.getElementsByClassName('modal')[0].style.display='block';
@@ -51,12 +52,16 @@ export default class ToDoController {
 
         document.getElementById("add-item-button").onmousedown = function() {
             appModel.addNewItemTransaction();
-        }  
+        }
     }
     
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD
     handleLoadList(listId) {
         // UNLOAD THE CURRENT LIST AND INSTEAD LOAD THE CURRENT LIST
         this.model.loadList(listId);
+    }
+
+    handleDescriptionChange(listItem,description){
+        this.model.addEditDescriptionTransaction(listItem,description);
     }
 }

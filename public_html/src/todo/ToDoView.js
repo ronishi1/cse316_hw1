@@ -74,6 +74,49 @@ export default class ToDoView {
                                 + "</div>";
             itemsListDiv.innerHTML += listItemElement;
         }
+        for(let j = 0; j<list.items.length;j++){
+            let listItemElement = document.getElementById("todo-list-item-" + list.items[j].id);
+            // Task column
+            let task = listItemElement.getElementsByClassName("task-col")[0];
+            let taskInput = document.createElement("input");
+            taskInput.className = "task-col"
+            task.onmousedown = function(){
+                taskInput.setAttribute("value",list.items[j].getDescription());
+                task.replaceWith(taskInput);
+                window.setTimeout(function () { 
+                    taskInput.focus(); 
+                }, 0); 
+            }
+            taskInput.onblur = () => {
+                this.controller.handleDescriptionChange(list.items[j],taskInput.value);
+                taskInput.replaceWith(task)
+            }
+
+            // Status Column
+            let status = listItemElement.getElementsByClassName("status-col")[0];
+            let statusSelector = document.createElement("select");
+            statusSelector.className = "status-col";
+            let completeStatus = document.createElement("option");
+            completeStatus.value = "complete";
+            completeStatus.text = "complete";
+            let incompleteStatus = document.createElement("option");
+            incompleteStatus.value = "incomplete";
+            incompleteStatus.text = "incomplete";
+            statusSelector.appendChild(completeStatus);
+            statusSelector.appendChild(incompleteStatus)
+            status.onmousedown = function(){
+                status.replaceWith(statusSelector);
+                window.setTimeout(function () { 
+                    statusSelector.focus(); 
+                }, 0); 
+            }
+            statusSelector.onblur = function(){
+                statusSelector.replaceWith(status)
+                console.log("test")
+            }
+
+
+        }
     }
 
     moveSelectedListUp(list,lists){

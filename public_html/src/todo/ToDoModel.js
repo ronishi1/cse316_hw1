@@ -4,6 +4,7 @@ import ToDoList from './ToDoList.js'
 import ToDoListItem from './ToDoListItem.js'
 import jsTPS from '../common/jsTPS.js'
 import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
+import EditDescription_Transaction from './transactions/EditDescription_Transaction.js'
 
 /**
  * ToDoModel
@@ -112,6 +113,17 @@ export default class ToDoModel {
         this.currentList.items.push(newItem);
         this.view.viewList(this.currentList);
         return newItem;
+    }
+
+
+    addEditDescriptionTransaction(listItem,newDescription) {
+        let transaction = new EditDescription_Transaction(this,listItem,listItem.getDescription(),newDescription);
+        this.tps.addTransaction(transaction);
+    }
+
+    editDescription(listItem,newDescription){
+        listItem.setDescription(newDescription);
+        this.view.viewList(this.currentList);
     }
 
     /**
