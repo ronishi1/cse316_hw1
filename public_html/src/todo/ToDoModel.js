@@ -7,6 +7,8 @@ import AddNewItem_Transaction from './transactions/AddNewItem_Transaction.js'
 import EditDescription_Transaction from './transactions/EditDescription_Transaction.js'
 import EditDate_Transaction from './transactions/EditDate_Transaction.js'
 import EditStatus_Transaction from './transactions/EditStatus_Transaction.js'
+import MoveUp_Transaction from './transactions/MoveUp_Transaction.js'
+import MoveDown_Transaction from './transactions/MoveDown_Transaction.js'
 
 /**
  * ToDoModel
@@ -117,37 +119,6 @@ export default class ToDoModel {
         return newItem;
     }
 
-
-    addEditDescriptionTransaction(listItem,newDescription) {
-        let transaction = new EditDescription_Transaction(this,listItem,listItem.getDescription(),newDescription);
-        this.tps.addTransaction(transaction);
-    }
-
-    editDescription(listItem,newDescription){
-        listItem.setDescription(newDescription);
-        this.view.viewList(this.currentList);
-    }
-
-    addEditDateTransaction(listItem,newDate) {
-        let transaction = new EditDate_Transaction(this,listItem,listItem.getDueDate(),newDate);
-        this.tps.addTransaction(transaction);
-    }
-
-    editDate(listItem,newDate){
-        listItem.setDueDate(newDate);
-        this.view.viewList(this.currentList);
-    }
-
-    addEditStatusTransaction(listItem,newStatus) {
-        let transaction = new EditStatus_Transaction(this,listItem,listItem.getStatus(),newStatus);
-        this.tps.addTransaction(transaction);
-    }
-
-    editStatus(listItem,newStatus){
-        listItem.setStatus(newStatus);
-        this.view.viewList(this.currentList);
-    }
-
     /**
      * Makes a new list item with the provided data and adds it to the list.
      */
@@ -233,4 +204,51 @@ export default class ToDoModel {
             this.tps.undoTransaction();
         }
     } 
+
+    addEditDescriptionTransaction(listItem,newDescription) {
+        let transaction = new EditDescription_Transaction(this,listItem,listItem.getDescription(),newDescription);
+        this.tps.addTransaction(transaction);
+    }
+
+    editDescription(listItem,newDescription){
+        listItem.setDescription(newDescription);
+        this.view.viewList(this.currentList);
+    }
+
+    addEditDateTransaction(listItem,newDate) {
+        let transaction = new EditDate_Transaction(this,listItem,listItem.getDueDate(),newDate);
+        this.tps.addTransaction(transaction);
+    }
+
+    editDate(listItem,newDate){
+        listItem.setDueDate(newDate);
+        this.view.viewList(this.currentList);
+    }
+
+    addEditStatusTransaction(listItem,newStatus) {
+        let transaction = new EditStatus_Transaction(this,listItem,listItem.getStatus(),newStatus);
+        this.tps.addTransaction(transaction);
+    }
+
+    editStatus(listItem,newStatus){
+        listItem.setStatus(newStatus);
+        this.view.viewList(this.currentList);
+    }
+
+    addMoveUpTransaction(listIndex){
+        let transaction = new MoveUp_Transaction(this,listIndex);
+        this.tps.addTransaction(transaction);
+    }
+
+    addMoveDownTransaction(listIndex){
+        let transaction = new MoveDown_Transaction(this,listIndex);
+        this.tps.addTransaction(transaction);
+    }
+
+    swapListItems(index1,index2){
+        let temp = this.currentList.items[index1];
+        this.currentList.items[index1] = this.currentList.items[index2];
+        this.currentList.items[index2] = temp;
+        this.view.viewList(this.currentList);
+    }
 }

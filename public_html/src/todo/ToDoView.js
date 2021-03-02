@@ -66,9 +66,9 @@ export default class ToDoView {
                                 + "<div class='due-date-col'>" + listItem.dueDate + "</div>"
                                 + "<div class='status-col'>" + listItem.status + "</div>"
                                 + "<div class='list-controls-col'>"
-                                + " <div class='list-item-control material-icons'>keyboard_arrow_up</div>"
-                                + " <div class='list-item-control material-icons'>keyboard_arrow_down</div>"
-                                + " <div class='list-item-control material-icons'>close</div>"
+                                + " <div class='list-item-control material-icons moveup'>keyboard_arrow_up</div>"
+                                + " <div class='list-item-control material-icons movedown'>keyboard_arrow_down</div>"
+                                + " <div class='list-item-control material-icons close'>close</div>"
                                 + " <div class='list-item-control'></div>"
                                 + " <div class='list-item-control'></div>"
                                 + "</div>";
@@ -76,6 +76,7 @@ export default class ToDoView {
         }
         for(let j = 0; j<list.items.length;j++){
             let listItemElement = document.getElementById("todo-list-item-" + list.items[j].id);
+
             // Task column
             let task = listItemElement.getElementsByClassName("task-col")[0];
             let taskInput = document.createElement("input");
@@ -135,6 +136,28 @@ export default class ToDoView {
             statusSelector.onblur = () => {
                 this.controller.handleStatusChange(list.items[j],statusSelector.value);
                 statusSelector.replaceWith(status)
+            }
+
+            let moveup = listItemElement.getElementsByClassName("moveup")[0];
+            if(j != 0){
+                moveup.onmousedown = () => {
+                    this.controller.handleMoveElementUp(j);
+                }
+            }
+            else {
+                moveup.style["pointer-events"] = "none";
+                moveup.style.opacity = .3;
+            }
+
+            let movedown = listItemElement.getElementsByClassName("movedown")[0];
+            if(j != list.items.length-1){
+                movedown.onmousedown = () =>{
+                    this.controller.handleMoveElementDown(j);
+                }
+            }
+            else {
+                movedown.style["pointer-events"] = "none";
+                movedown.style.opacity = .3;
             }
 
 

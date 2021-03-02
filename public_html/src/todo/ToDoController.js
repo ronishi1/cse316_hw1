@@ -73,4 +73,11 @@ export default class ToDoController {
         this.model.addEditStatusTransaction(listItem,status);
     }
 
+    handleMoveElementUp(listIndex){
+        this.model.addMoveUpTransaction(listIndex);
+    }
+
+    handleMoveElementDown(listIndex){
+        this.model.addMoveDownTransaction(listIndex);
+    }
 }
