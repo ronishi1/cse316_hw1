@@ -150,6 +150,7 @@ export default class ToDoModel {
         if (listIndex >= 0) {
             let listToLoad = this.toDoLists[listIndex];
             this.currentList = listToLoad;
+            this.tps.clearAllTransactions();
             this.view.moveSelectedListUp(this.currentList,this.toDoLists);
             this.view.highlightList(this.currentList);
             this.view.enableButtons();

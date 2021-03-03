@@ -82,7 +82,6 @@
 #left-sidebar {
     background-color: var(--swatch-complement);
     color: rgb(233,237,240);
-    box-shadow: 2px 3px 2px #636363;
 }
 
 #workspace {
@@ -124,5 +123,29 @@
 }
 
 .todo_button:hover {
+    background-color:var(--modal-hover);
+}
+
+.moveup {
+    cursor:pointer;
+}
+
+.moveup:hover {
+    background-color:var(--modal-hover);
+}
+
+.movedown {
+    cursor:pointer;
+}
+
+.movedown:hover {
+    background-color:var(--modal-hover);
+}
+
+.closeitem {
+    cursor:pointer;
+}
+
+.closeitem:hover {
     background-color:var(--modal-hover);
 }

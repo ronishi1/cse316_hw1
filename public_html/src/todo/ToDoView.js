@@ -75,6 +75,7 @@ export default class ToDoView {
             itemsListDiv.innerHTML += listItemElement;
         }
         for(let j = 0; j<list.items.length;j++){
+
             let listItemElement = document.getElementById("todo-list-item-" + list.items[j].id);
 
             // Task column
@@ -111,6 +112,12 @@ export default class ToDoView {
             }
             // Status Column
             let status = listItemElement.getElementsByClassName("status-col")[0];
+            if(list.items[j].status == "complete"){
+                status.style.color = "#8ed4f8"
+            }
+            else {
+                status.style.color = "#f5bc75"
+            }
             let statusSelector = document.createElement("select");
             statusSelector.className = "status-col";
             let completeStatus = document.createElement("option");
