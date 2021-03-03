@@ -18,6 +18,7 @@ export default class ToDoView {
         let listElement = document.createElement("div");
         listElement.setAttribute("id", newListId);
         listElement.setAttribute("class", "todo_button");
+        listElement.classList.add("todo-list");
         listElement.appendChild(document.createTextNode(newList.name));
         listsElement.appendChild(listElement);
 
@@ -113,7 +114,7 @@ export default class ToDoView {
             // Status Column
             let status = listItemElement.getElementsByClassName("status-col")[0];
             if(list.items[j].status == "complete"){
-                status.style.color = "#8ed4f8"
+                status.style.color = "#8ed4f8";
             }
             else {
                 status.style.color = "#f5bc75"

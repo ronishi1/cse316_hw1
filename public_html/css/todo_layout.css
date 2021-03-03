@@ -148,12 +148,17 @@ html,body{
 }
 
 #todo-lists-list{
-        display: flex;
-        overflow: scroll;
-        overflow-x: hidden;
-        flex-direction: column;
-        margin: 0;
-        height:91.2%;
+    display: flex;
+    overflow: scroll;
+    overflow-x: hidden;
+    flex-direction: column;
+    margin: 0;
+    height:91.2%;
+    text-align:center;
+}
+
+.todo-list {
+    padding:15px;
 }
 
 #workspace {
@@ -199,3 +204,6 @@ html,body{
     width: 20%;
 }
 
+.center-button {
+    text-align:center;
+}

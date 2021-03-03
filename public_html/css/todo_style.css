@@ -13,22 +13,21 @@
     --swatch-text:          #e9edf0; /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */ 
     --swatch-text-accent:   #ffc819; /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */  
 
-    --font-primary:         'Lexend Exa', sans-serif;
+    --font-primary:         'Consolas', serif;
 
     --modal-hover: rgba(255,255,255,.6); 
     --light-gray: #e9edf0;
+}
+
+@font-face {
+    font-family: Consolas;
+    src: url(./Consolas.ttf);
 }
 
 .modal-wrapper {
     background-color: rgba(0,0,0,0.4);
 }
 
-.ripple:not(:active):before {
-    overflow: hidden;
-    animation: ripple 0.5s cubic-bezier(0, 0, 0.2, 1);
-    /* transition: visibility .4s step-end; */
-    transition: visibility .5s ease-out;
-}
 
 #modal-close {
     color: var(--light-gray);
@@ -109,6 +108,7 @@
 
 .list-item-card {
     border-bottom: solid;
+    border-width:1.5px;
 }
 
 #navbar {
