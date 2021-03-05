@@ -155,6 +155,8 @@ export default class ToDoModel {
             this.view.highlightList(this.currentList);
             this.view.enableButtons();
             this.view.disableAddListButton();
+            this.view.disableRedoButton();
+            this.view.disableUndoButton();
             this.view.viewList(this.currentList);
       }
     }
@@ -165,6 +167,13 @@ export default class ToDoModel {
     redo() {
         if (this.tps.hasTransactionToRedo()) {
             this.tps.doTransaction();
+            if(this.tps.getRedoSize() == 0){
+                this.view.disableRedoButton();
+                this.view.enableUndoButton();
+            }
+            else {
+                this.view.enableRedoButton();
+            }
         }
     }   
 
@@ -204,12 +213,21 @@ export default class ToDoModel {
     undo() {
         if (this.tps.hasTransactionToUndo()) {
             this.tps.undoTransaction();
+            this.view.enableRedoButton();
+            if(this.tps.getUndoSize() == 0){
+                this.view.disableUndoButton();
+            }
+            else {
+                this.view.enableUndoButton();
+            }
         }
     } 
 
     addEditDescriptionTransaction(listItem,newDescription) {
         let transaction = new EditDescription_Transaction(this,listItem,listItem.getDescription(),newDescription);
         this.tps.addTransaction(transaction);
+        this.view.disableRedoButton();
+        this.view.enableUndoButton();
     }
 
     editDescription(listItem,newDescription){
@@ -220,6 +238,8 @@ export default class ToDoModel {
     addEditDateTransaction(listItem,newDate) {
         let transaction = new EditDate_Transaction(this,listItem,listItem.getDueDate(),newDate);
         this.tps.addTransaction(transaction);
+        this.view.disableRedoButton();
+        this.view.enableUndoButton();
     }
 
     editDate(listItem,newDate){
@@ -230,6 +250,8 @@ export default class ToDoModel {
     addEditStatusTransaction(listItem,newStatus) {
         let transaction = new EditStatus_Transaction(this,listItem,listItem.getStatus(),newStatus);
         this.tps.addTransaction(transaction);
+        this.view.disableRedoButton();
+        this.view.enableUndoButton();
     }
 
     editStatus(listItem,newStatus){
@@ -240,11 +262,15 @@ export default class ToDoModel {
     addMoveUpTransaction(listIndex){
         let transaction = new MoveUp_Transaction(this,listIndex);
         this.tps.addTransaction(transaction);
+        this.view.disableRedoButton();
+        this.view.enableUndoButton();
     }
 
     addMoveDownTransaction(listIndex){
         let transaction = new MoveDown_Transaction(this,listIndex);
         this.tps.addTransaction(transaction);
+        this.view.disableRedoButton();
+        this.view.enableUndoButton();
     }
 
     swapListItems(index1,index2){
@@ -257,6 +283,8 @@ export default class ToDoModel {
     addDeleteItemTransaction(listItem,listIndex){
         let transaction = new DeleteItem_Transaction(this,listItem,listIndex);
         this.tps.addTransaction(transaction);
+        this.view.disableRedoButton();
+        this.view.enableUndoButton();
     }
 
     deleteItem(listIndex){
