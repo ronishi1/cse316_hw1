@@ -104,7 +104,7 @@ export default class ToDoView {
             date.onmousedown = () => {
                 date.replaceWith(dateInput);
                 window.setTimeout(function () { 
-                    taskInput.focus(); 
+                    dateInput.focus(); 
                 }, 0); 
             }
             dateInput.onblur = () => {
