@@ -80,6 +80,8 @@ export default class ToDoModel {
     addNewItemTransaction() {
         let transaction = new AddNewItem_Transaction(this);
         this.tps.addTransaction(transaction);
+        this.view.disableRedoButton();
+        this.view.enableUndoButton();
     }
 
     /**
