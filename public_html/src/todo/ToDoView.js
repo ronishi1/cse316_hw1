@@ -231,4 +231,23 @@ export default class ToDoView {
         this.controller = initController;
     }
 
+    disableUndoButton(){
+        document.getElementById("undo-button").style["pointer-events"] = "none";
+        document.getElementById("undo-button").style.opacity = .3;
+    }
+
+    enableUndoButton(){
+        document.getElementById("undo-button").style["pointer-events"] = "auto";
+        document.getElementById("undo-button").style.opacity = 1;
+    }
+
+    disableRedoButton(){
+        document.getElementById("redo-button").style["pointer-events"] = "none";
+        document.getElementById("redo-button").style.opacity = .3;
+    }
+
+    enableRedoButton(){
+        document.getElementById("redo-button").style["pointer-events"] = "auto";
+        document.getElementById("redo-button").style.opacity = 1;
+    }
 }

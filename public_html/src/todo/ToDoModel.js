@@ -268,4 +268,5 @@ export default class ToDoModel {
         this.currentList.items.splice(listIndex,0,listItem);
         this.view.viewList(this.currentList);
     }
+
 }

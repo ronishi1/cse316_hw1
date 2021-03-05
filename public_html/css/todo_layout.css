@@ -12,8 +12,9 @@ html,body{
 
 .disable  {
     pointer-events:none;
-    opacity:.5;
+    opacity:.3;
 }
+
 #navbar {
     display: flex;
     justify-content: space-between;
@@ -124,7 +125,7 @@ html,body{
     display: grid;
     padding: 1px;
     grid-template-rows: 5% 95%;
-    grid-template-columns: 12% 88%;
+    grid-template-columns: 13% 87%;
 }
 
 #left-sidebar {
@@ -136,11 +137,28 @@ html,body{
 
 #left-sidebar-header {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 55% 45%;
+    padding:1px;
+    position:relative;
 }
 
-#left-sidebar-header-text {
-    
+.left-sidebar-header-text {
+    display: flex;
+    float: left;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1%;
+    /* margin-top: 6.5%; */
+    width: 90%;
+    height: 110%;
+    text-align: left;
+}
+
+#add-undo-redo-box{
+    display:flex;
+    flex-direction: row;
+    padding-top:5px;
+    padding-bottom:5px;
 }
 
 #left-sidebar-controls {
@@ -159,6 +177,8 @@ html,body{
 
 .todo-list {
     padding:15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #workspace {
@@ -177,9 +197,16 @@ html,body{
 
 .list-item-card {
     height: 20px;
-    padding:5px;
+    padding:10px;
     display: flex;
     flex-direction: row;
+}
+
+#todo-list-header-card{
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    height: 20px;
 }
 
 .task-col {
@@ -206,4 +233,17 @@ html,body{
 
 .center-button {
     text-align:center;
+}
+
+.button-fix-div{
+    height:26px;
+    margin-top:-2px;
+}
+
+.button-fix-span{
+    margin-top:1px;
+}
+
+.header-button{
+    padding:0px 1.5px 0px 1.5px;
 }

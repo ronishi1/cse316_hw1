@@ -13,7 +13,7 @@
     --swatch-text:          #e9edf0; /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */ 
     --swatch-text-accent:   #ffc819; /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */  
 
-    --font-primary:         'Consolas', serif;
+    --font-primary:         'Consolas', sans-serif;
 
     --modal-hover: rgba(255,255,255,.6); 
     --light-gray: #e9edf0;
@@ -50,6 +50,7 @@
     border-bottom: 2px dotted;
     color: var(--light-gray);
 }
+
 
 .modal-button {
     background-color: rgba(255,255,255, 0);
@@ -95,7 +96,7 @@
 }
 
 #left-sidebar-header {
-    border-bottom: dotted;
+    border-bottom: 3px dotted;
 }
 
 #todo-list-table-header {
@@ -148,4 +149,12 @@
 
 .closeitem:hover {
     background-color:var(--modal-hover);
+}
+
+#todo-list-header-card{
+    border-bottom: 3px dotted;
+}
+
+#add-list-button{
+    color:#ffc800;
 }
