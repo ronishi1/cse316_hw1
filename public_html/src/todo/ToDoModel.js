@@ -122,6 +122,10 @@ export default class ToDoModel {
         return newItem;
     }
 
+    reAddItem(listItem){
+        this.currentList.items.push(listItem);
+        this.view.viewList(this.currentList);
+    }
     /**
      * Makes a new list item with the provided data and adds it to the list.
      */
