@@ -205,6 +205,8 @@ export default class ToDoModel {
         this.currentList = null;
         this.view.clearItemsList();
         this.view.enableAddListButton();
+        this.view.disableRedoButton();
+        this.view.disableUndoButton();
         this.view.refreshLists(this.toDoLists);
     }
 
