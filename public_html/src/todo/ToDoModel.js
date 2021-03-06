@@ -143,6 +143,8 @@ export default class ToDoModel {
         this.view.unhighlightList(this.currentList);
         this.view.disableButtons();
         this.view.enableAddListButton();
+        this.view.disableRedoButton();
+        this.view.disableUndoButton();
     }
     /**
      * Load the items for the listId list into the UI.
